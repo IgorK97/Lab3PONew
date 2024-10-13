@@ -26,7 +26,7 @@ namespace WindowsFormsApp2
     public delegate void EPizzaIngredientChanged();
 
 
-    internal class AddClientForm : Form
+    public class AddClientForm : Form
     {
         public static event EPizzaNameChanged NameNotify;
         public static event EPizzaSizeChanged SizeNotify;
@@ -72,261 +72,239 @@ namespace WindowsFormsApp2
 
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxPizzasSizes = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBoxPizzasName = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Ingredients_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Include = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightingr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdIngr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.textBoxWeight = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            numericUpDown1 = new NumericUpDown();
+            comboBoxPizzasSizes = new ComboBox();
+            richTextBox1 = new RichTextBox();
+            pictureBox1 = new PictureBox();
+            comboBoxPizzasName = new ComboBox();
+            label8 = new Label();
+            label7 = new Label();
+            label1 = new Label();
+            button1 = new Button();
+            dataGridView1 = new DataGridView();
+            Ingredients_Name = new DataGridViewTextBoxColumn();
+            Include = new DataGridViewCheckBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            weightingr = new DataGridViewTextBoxColumn();
+            IdIngr = new DataGridViewTextBoxColumn();
+            label2 = new Label();
+            textBoxPrice = new TextBox();
+            textBoxWeight = new TextBox();
+            label3 = new Label();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.comboBoxPizzasSizes);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.comboBoxPizzasName);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 16);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 238);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Добавление пиццы в корзину";
+            groupBox1.Controls.Add(numericUpDown1);
+            groupBox1.Controls.Add(comboBoxPizzasSizes);
+            groupBox1.Controls.Add(richTextBox1);
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(comboBoxPizzasName);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(14, 16);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(360, 238);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Добавление пиццы в корзину";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(202, 205);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 20;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            numericUpDown1.Location = new Point(202, 205);
+            numericUpDown1.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 20;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // comboBoxPizzasSizes
             // 
-            this.comboBoxPizzasSizes.FormattingEnabled = true;
-            this.comboBoxPizzasSizes.Location = new System.Drawing.Point(202, 175);
-            this.comboBoxPizzasSizes.Name = "comboBoxPizzasSizes";
-            this.comboBoxPizzasSizes.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxPizzasSizes.TabIndex = 19;
-            this.comboBoxPizzasSizes.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizzasSizes_SelectedIndexChanged);
+            comboBoxPizzasSizes.FormattingEnabled = true;
+            comboBoxPizzasSizes.Location = new Point(202, 175);
+            comboBoxPizzasSizes.Name = "comboBoxPizzasSizes";
+            comboBoxPizzasSizes.Size = new Size(121, 23);
+            comboBoxPizzasSizes.TabIndex = 19;
+            comboBoxPizzasSizes.SelectedIndexChanged += comboBoxPizzasSizes_SelectedIndexChanged;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(23, 53);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(158, 105);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
+            richTextBox1.Location = new Point(23, 53);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
+            richTextBox1.Size = new Size(158, 105);
+            richTextBox1.TabIndex = 18;
+            richTextBox1.Text = "";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(202, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 106);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new Point(202, 52);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(121, 106);
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
             // 
             // comboBoxPizzasName
             // 
-            this.comboBoxPizzasName.FormattingEnabled = true;
-            this.comboBoxPizzasName.Location = new System.Drawing.Point(138, 25);
-            this.comboBoxPizzasName.Name = "comboBoxPizzasName";
-            this.comboBoxPizzasName.Size = new System.Drawing.Size(185, 21);
-            this.comboBoxPizzasName.TabIndex = 16;
-            this.comboBoxPizzasName.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizzasName_SelectedIndexChanged);
+            comboBoxPizzasName.FormattingEnabled = true;
+            comboBoxPizzasName.Location = new Point(138, 25);
+            comboBoxPizzasName.Name = "comboBoxPizzasName";
+            comboBoxPizzasName.Size = new Size(185, 23);
+            comboBoxPizzasName.TabIndex = 16;
+            comboBoxPizzasName.SelectedIndexChanged += comboBoxPizzasName_SelectedIndexChanged;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 213);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Выберите количество";
+            label8.AutoSize = true;
+            label8.Location = new Point(20, 213);
+            label8.Name = "label8";
+            label8.Size = new Size(128, 15);
+            label8.TabIndex = 15;
+            label8.Text = "Выберите количество";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 178);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Выберите размер пиццы";
+            label7.AutoSize = true;
+            label7.Location = new Point(20, 178);
+            label7.Name = "label7";
+            label7.Size = new Size(144, 15);
+            label7.TabIndex = 14;
+            label7.Text = "Выберите размер пиццы";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Название пиццы";
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Название пиццы";
             // 
             // button1
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(255, 546);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 34);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Добавить в корзину";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            button1.DialogResult = DialogResult.OK;
+            button1.Location = new Point(255, 537);
+            button1.Name = "button1";
+            button1.Size = new Size(119, 46);
+            button1.TabIndex = 5;
+            button1.Text = "Добавить в корзину";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ingredients_Name,
-            this.Include,
-            this.Price,
-            this.weightingr,
-            this.IdIngr});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 261);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(360, 232);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_CellValueChanged);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ingredients_Name, Include, Price, weightingr, IdIngr });
+            dataGridView1.Location = new Point(14, 261);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(360, 232);
+            dataGridView1.TabIndex = 6;
+            dataGridView1.Click += dataGridView1_CellValueChanged;
             // 
             // Ingredients_Name
             // 
-            this.Ingredients_Name.DataPropertyName = "C_name";
-            this.Ingredients_Name.HeaderText = "Ингредиент";
-            this.Ingredients_Name.Name = "Ingredients_Name";
-            this.Ingredients_Name.ReadOnly = true;
+            Ingredients_Name.DataPropertyName = "C_name";
+            Ingredients_Name.HeaderText = "Ингредиент";
+            Ingredients_Name.Name = "Ingredients_Name";
+            Ingredients_Name.ReadOnly = true;
             // 
             // Include
             // 
-            this.Include.DataPropertyName = "active";
-            this.Include.HeaderText = "Включение";
-            this.Include.Name = "Include";
+            Include.DataPropertyName = "active";
+            Include.HeaderText = "Включение";
+            Include.Name = "Include";
             // 
             // Price
             // 
-            this.Price.DataPropertyName = "price";
-            this.Price.HeaderText = "Цена";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            Price.DataPropertyName = "price";
+            Price.HeaderText = "Цена";
+            Price.Name = "Price";
+            Price.ReadOnly = true;
+            Price.Resizable = DataGridViewTriState.True;
+            Price.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // weightingr
             // 
-            this.weightingr.DataPropertyName = "weight";
-            this.weightingr.HeaderText = "Вес";
-            this.weightingr.Name = "weightingr";
-            this.weightingr.ReadOnly = true;
-            this.weightingr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.weightingr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            weightingr.DataPropertyName = "weight";
+            weightingr.HeaderText = "Вес";
+            weightingr.Name = "weightingr";
+            weightingr.ReadOnly = true;
+            weightingr.Resizable = DataGridViewTriState.True;
+            weightingr.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // IdIngr
             // 
-            this.IdIngr.DataPropertyName = "id";
-            this.IdIngr.HeaderText = "Id";
-            this.IdIngr.Name = "IdIngr";
-            this.IdIngr.ReadOnly = true;
-            this.IdIngr.Visible = false;
+            IdIngr.DataPropertyName = "id";
+            IdIngr.HeaderText = "Id";
+            IdIngr.Name = "IdIngr";
+            IdIngr.ReadOnly = true;
+            IdIngr.Visible = false;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 507);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Цена";
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 507);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Цена";
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(67, 507);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.ReadOnly = true;
-            this.textBoxPrice.Size = new System.Drawing.Size(100, 20);
-            this.textBoxPrice.TabIndex = 8;
+            textBoxPrice.Location = new Point(67, 507);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.ReadOnly = true;
+            textBoxPrice.Size = new Size(100, 23);
+            textBoxPrice.TabIndex = 8;
             // 
             // textBoxWeight
             // 
-            this.textBoxWeight.Location = new System.Drawing.Point(67, 534);
-            this.textBoxWeight.Name = "textBoxWeight";
-            this.textBoxWeight.ReadOnly = true;
-            this.textBoxWeight.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWeight.TabIndex = 9;
+            textBoxWeight.Location = new Point(67, 534);
+            textBoxWeight.Name = "textBoxWeight";
+            textBoxWeight.ReadOnly = true;
+            textBoxWeight.Size = new Size(100, 23);
+            textBoxWeight.TabIndex = 9;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 537);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Вес";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 537);
+            label3.Name = "label3";
+            label3.Size = new Size(26, 15);
+            label3.TabIndex = 10;
+            label3.Text = "Вес";
             // 
             // AddClientForm
             // 
-            this.ClientSize = new System.Drawing.Size(386, 592);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxWeight);
-            this.Controls.Add(this.textBoxPrice);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "AddClientForm";
-            this.Text = "Добавление пиццы в корзину";
-            this.Load += new System.EventHandler(this.AddClientForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            ClientSize = new Size(386, 592);
+            Controls.Add(label3);
+            Controls.Add(textBoxWeight);
+            Controls.Add(textBoxPrice);
+            Controls.Add(label2);
+            Controls.Add(dataGridView1);
+            Controls.Add(button1);
+            Controls.Add(groupBox1);
+            Name = "AddClientForm";
+            Text = "Добавление пиццы в корзину";
+            Load += AddClientForm_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
-
-
-
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
