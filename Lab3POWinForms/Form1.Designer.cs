@@ -36,15 +36,20 @@
             button2 = new Button();
             button1 = new Button();
             dataGridViewOrderLines = new DataGridView();
-            Id_OrderLine = new DataGridViewTextBoxColumn();
-            OrdersId_OrderLine = new DataGridViewTextBoxColumn();
-            pizzaId = new DataGridViewComboBoxColumn();
-            CustomColumn = new DataGridViewCheckBoxColumn();
-            PositionPrice = new DataGridViewTextBoxColumn();
-            Weight = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             button5 = new Button();
             dataGridViewOrders = new DataGridView();
+            IdOrders = new DataGridViewTextBoxColumn();
+            clientId_Orders = new DataGridViewTextBoxColumn();
+            CourierId_Orders = new DataGridViewComboBoxColumn();
+            final_price = new DataGridViewTextBoxColumn();
+            addres_del = new DataGridViewTextBoxColumn();
+            weight_orders = new DataGridViewTextBoxColumn();
+            ordertime = new DataGridViewTextBoxColumn();
+            deliverytime = new DataGridViewTextBoxColumn();
+            delstatus = new DataGridViewComboBoxColumn();
+            comment = new DataGridViewTextBoxColumn();
+            managersId = new DataGridViewComboBoxColumn();
             tabPage3 = new TabPage();
             label1 = new Label();
             dataGridViewReport1 = new DataGridView();
@@ -66,17 +71,14 @@
             FC = new DataGridViewTextBoxColumn();
             bindingSourceOrderLines = new BindingSource(components);
             bindingSourceOrders = new BindingSource(components);
-            IdOrders = new DataGridViewTextBoxColumn();
-            clientId_Orders = new DataGridViewTextBoxColumn();
-            CourierId_Orders = new DataGridViewComboBoxColumn();
-            final_price = new DataGridViewTextBoxColumn();
-            addres_del = new DataGridViewTextBoxColumn();
-            weight_orders = new DataGridViewTextBoxColumn();
-            ordertime = new DataGridViewTextBoxColumn();
-            deliverytime = new DataGridViewTextBoxColumn();
-            delstatus = new DataGridViewComboBoxColumn();
-            comment = new DataGridViewTextBoxColumn();
-            managersId = new DataGridViewComboBoxColumn();
+            Id_OrderLine = new DataGridViewTextBoxColumn();
+            OrdersId_OrderLine = new DataGridViewTextBoxColumn();
+            pizzaId = new DataGridViewComboBoxColumn();
+            CustomColumn = new DataGridViewCheckBoxColumn();
+            PositionPrice = new DataGridViewTextBoxColumn();
+            Weight = new DataGridViewTextBoxColumn();
+            qu = new DataGridViewTextBoxColumn();
+            Sizep = new DataGridViewComboBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderLines).BeginInit();
@@ -163,58 +165,12 @@
             dataGridViewOrderLines.AllowUserToAddRows = false;
             dataGridViewOrderLines.AllowUserToDeleteRows = false;
             dataGridViewOrderLines.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewOrderLines.Columns.AddRange(new DataGridViewColumn[] { Id_OrderLine, OrdersId_OrderLine, pizzaId, CustomColumn, PositionPrice, Weight });
+            dataGridViewOrderLines.Columns.AddRange(new DataGridViewColumn[] { Id_OrderLine, OrdersId_OrderLine, pizzaId, CustomColumn, PositionPrice, Weight, qu, Sizep });
             dataGridViewOrderLines.Location = new Point(6, 49);
             dataGridViewOrderLines.Name = "dataGridViewOrderLines";
             dataGridViewOrderLines.ReadOnly = true;
             dataGridViewOrderLines.Size = new Size(756, 326);
             dataGridViewOrderLines.TabIndex = 0;
-            // 
-            // Id_OrderLine
-            // 
-            Id_OrderLine.DataPropertyName = "id";
-            Id_OrderLine.HeaderText = "Id";
-            Id_OrderLine.Name = "Id_OrderLine";
-            Id_OrderLine.ReadOnly = true;
-            Id_OrderLine.Visible = false;
-            // 
-            // OrdersId_OrderLine
-            // 
-            OrdersId_OrderLine.DataPropertyName = "ordersId";
-            OrdersId_OrderLine.HeaderText = "Номер заказа";
-            OrdersId_OrderLine.Name = "OrdersId_OrderLine";
-            OrdersId_OrderLine.ReadOnly = true;
-            OrdersId_OrderLine.Visible = false;
-            // 
-            // pizzaId
-            // 
-            pizzaId.DataPropertyName = "pizzaId";
-            pizzaId.HeaderText = "Пицца";
-            pizzaId.Name = "pizzaId";
-            pizzaId.ReadOnly = true;
-            // 
-            // CustomColumn
-            // 
-            CustomColumn.DataPropertyName = "custom";
-            CustomColumn.HeaderText = "Пользовательская";
-            CustomColumn.Name = "CustomColumn";
-            CustomColumn.ReadOnly = true;
-            // 
-            // PositionPrice
-            // 
-            PositionPrice.DataPropertyName = "position_price";
-            PositionPrice.HeaderText = "Цена";
-            PositionPrice.Name = "PositionPrice";
-            PositionPrice.ReadOnly = true;
-            PositionPrice.Resizable = DataGridViewTriState.True;
-            PositionPrice.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Weight
-            // 
-            Weight.DataPropertyName = "weight";
-            Weight.HeaderText = "Вес";
-            Weight.Name = "Weight";
-            Weight.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -249,6 +205,90 @@
             dataGridViewOrders.ReadOnly = true;
             dataGridViewOrders.Size = new Size(757, 349);
             dataGridViewOrders.TabIndex = 0;
+            // 
+            // IdOrders
+            // 
+            IdOrders.DataPropertyName = "id";
+            IdOrders.HeaderText = "Номер заказа";
+            IdOrders.Name = "IdOrders";
+            IdOrders.ReadOnly = true;
+            // 
+            // clientId_Orders
+            // 
+            clientId_Orders.DataPropertyName = "clientId";
+            clientId_Orders.HeaderText = "Клиент";
+            clientId_Orders.Name = "clientId_Orders";
+            clientId_Orders.ReadOnly = true;
+            clientId_Orders.Visible = false;
+            // 
+            // CourierId_Orders
+            // 
+            CourierId_Orders.DataPropertyName = "courierId";
+            CourierId_Orders.HeaderText = "Курьер";
+            CourierId_Orders.Name = "CourierId_Orders";
+            CourierId_Orders.ReadOnly = true;
+            CourierId_Orders.Visible = false;
+            // 
+            // final_price
+            // 
+            final_price.DataPropertyName = "final_price";
+            final_price.HeaderText = "Цена";
+            final_price.Name = "final_price";
+            final_price.ReadOnly = true;
+            // 
+            // addres_del
+            // 
+            addres_del.DataPropertyName = "address_del";
+            addres_del.HeaderText = "Адрес";
+            addres_del.Name = "addres_del";
+            addres_del.ReadOnly = true;
+            // 
+            // weight_orders
+            // 
+            weight_orders.DataPropertyName = "weight";
+            weight_orders.HeaderText = "Вес";
+            weight_orders.Name = "weight_orders";
+            weight_orders.ReadOnly = true;
+            // 
+            // ordertime
+            // 
+            ordertime.DataPropertyName = "ordertime";
+            ordertime.HeaderText = "Время заказа";
+            ordertime.Name = "ordertime";
+            ordertime.ReadOnly = true;
+            // 
+            // deliverytime
+            // 
+            deliverytime.DataPropertyName = "deliverytime";
+            deliverytime.HeaderText = "Время доставки";
+            deliverytime.Name = "deliverytime";
+            deliverytime.ReadOnly = true;
+            // 
+            // delstatus
+            // 
+            delstatus.DataPropertyName = "delstatusId";
+            delstatus.HeaderText = "Статус";
+            delstatus.Name = "delstatus";
+            delstatus.ReadOnly = true;
+            delstatus.Resizable = DataGridViewTriState.True;
+            delstatus.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // comment
+            // 
+            comment.DataPropertyName = "comment";
+            comment.HeaderText = "Комментарий";
+            comment.Name = "comment";
+            comment.ReadOnly = true;
+            // 
+            // managersId
+            // 
+            managersId.DataPropertyName = "managersId";
+            managersId.HeaderText = "Менеджер";
+            managersId.Name = "managersId";
+            managersId.ReadOnly = true;
+            managersId.Resizable = DataGridViewTriState.True;
+            managersId.SortMode = DataGridViewColumnSortMode.Automatic;
+            managersId.Visible = false;
             // 
             // tabPage3
             // 
@@ -288,6 +328,7 @@
             // 
             // Idpizzas
             // 
+            Idpizzas.DataPropertyName = "Id";
             Idpizzas.HeaderText = "Id";
             Idpizzas.Name = "Idpizzas";
             Idpizzas.ReadOnly = true;
@@ -295,12 +336,14 @@
             // 
             // NA
             // 
+            NA.DataPropertyName = "Name";
             NA.HeaderText = "Название";
             NA.Name = "NA";
             NA.ReadOnly = true;
             // 
             // ND
             // 
+            ND.DataPropertyName = "Description";
             ND.HeaderText = "Описание";
             ND.Name = "ND";
             ND.ReadOnly = true;
@@ -426,89 +469,67 @@
             FC.Name = "FC";
             FC.ReadOnly = true;
             // 
-            // IdOrders
+            // Id_OrderLine
             // 
-            IdOrders.DataPropertyName = "id";
-            IdOrders.HeaderText = "Номер заказа";
-            IdOrders.Name = "IdOrders";
-            IdOrders.ReadOnly = true;
+            Id_OrderLine.DataPropertyName = "id";
+            Id_OrderLine.HeaderText = "Id";
+            Id_OrderLine.Name = "Id_OrderLine";
+            Id_OrderLine.ReadOnly = true;
+            Id_OrderLine.Visible = false;
             // 
-            // clientId_Orders
+            // OrdersId_OrderLine
             // 
-            clientId_Orders.DataPropertyName = "clientId";
-            clientId_Orders.HeaderText = "Клиент";
-            clientId_Orders.Name = "clientId_Orders";
-            clientId_Orders.ReadOnly = true;
-            clientId_Orders.Visible = false;
+            OrdersId_OrderLine.DataPropertyName = "ordersId";
+            OrdersId_OrderLine.HeaderText = "Номер заказа";
+            OrdersId_OrderLine.Name = "OrdersId_OrderLine";
+            OrdersId_OrderLine.ReadOnly = true;
+            OrdersId_OrderLine.Visible = false;
             // 
-            // CourierId_Orders
+            // pizzaId
             // 
-            CourierId_Orders.DataPropertyName = "courierId";
-            CourierId_Orders.HeaderText = "Курьер";
-            CourierId_Orders.Name = "CourierId_Orders";
-            CourierId_Orders.ReadOnly = true;
-            CourierId_Orders.Visible = false;
+            pizzaId.DataPropertyName = "pizzaId";
+            pizzaId.HeaderText = "Пицца";
+            pizzaId.Name = "pizzaId";
+            pizzaId.ReadOnly = true;
             // 
-            // final_price
+            // CustomColumn
             // 
-            final_price.DataPropertyName = "final_price";
-            final_price.HeaderText = "Цена";
-            final_price.Name = "final_price";
-            final_price.ReadOnly = true;
+            CustomColumn.DataPropertyName = "custom";
+            CustomColumn.HeaderText = "Пользовательская";
+            CustomColumn.Name = "CustomColumn";
+            CustomColumn.ReadOnly = true;
             // 
-            // addres_del
+            // PositionPrice
             // 
-            addres_del.DataPropertyName = "address_del";
-            addres_del.HeaderText = "Адрес";
-            addres_del.Name = "addres_del";
-            addres_del.ReadOnly = true;
+            PositionPrice.DataPropertyName = "position_price";
+            PositionPrice.HeaderText = "Цена";
+            PositionPrice.Name = "PositionPrice";
+            PositionPrice.ReadOnly = true;
+            PositionPrice.Resizable = DataGridViewTriState.True;
+            PositionPrice.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
-            // weight_orders
+            // Weight
             // 
-            weight_orders.DataPropertyName = "weight";
-            weight_orders.HeaderText = "Вес";
-            weight_orders.Name = "weight_orders";
-            weight_orders.ReadOnly = true;
+            Weight.DataPropertyName = "weight";
+            Weight.HeaderText = "Вес";
+            Weight.Name = "Weight";
+            Weight.ReadOnly = true;
             // 
-            // ordertime
+            // qu
             // 
-            ordertime.DataPropertyName = "ordertime";
-            ordertime.HeaderText = "Время заказа";
-            ordertime.Name = "ordertime";
-            ordertime.ReadOnly = true;
+            qu.DataPropertyName = "quantity";
+            qu.HeaderText = "Количество";
+            qu.Name = "qu";
+            qu.ReadOnly = true;
             // 
-            // deliverytime
+            // Sizep
             // 
-            deliverytime.DataPropertyName = "deliverytime";
-            deliverytime.HeaderText = "Время доставки";
-            deliverytime.Name = "deliverytime";
-            deliverytime.ReadOnly = true;
-            // 
-            // delstatus
-            // 
-            delstatus.DataPropertyName = "delstatusId";
-            delstatus.HeaderText = "Статус";
-            delstatus.Name = "delstatus";
-            delstatus.ReadOnly = true;
-            delstatus.Resizable = DataGridViewTriState.True;
-            delstatus.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // comment
-            // 
-            comment.DataPropertyName = "comment";
-            comment.HeaderText = "Комментарий";
-            comment.Name = "comment";
-            comment.ReadOnly = true;
-            // 
-            // managersId
-            // 
-            managersId.DataPropertyName = "managersId";
-            managersId.HeaderText = "Менеджер";
-            managersId.Name = "managersId";
-            managersId.ReadOnly = true;
-            managersId.Resizable = DataGridViewTriState.True;
-            managersId.SortMode = DataGridViewColumnSortMode.Automatic;
-            managersId.Visible = false;
+            Sizep.DataPropertyName = "pizza_sizesId";
+            Sizep.HeaderText = "Размер";
+            Sizep.Name = "Sizep";
+            Sizep.ReadOnly = true;
+            Sizep.Resizable = DataGridViewTriState.True;
+            Sizep.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // Form1
             // 
@@ -561,16 +582,7 @@
         private NumericUpDown numericUpDown1;
         private DataGridView dataGridViewReport2;
         private BindingSource bindingSourceOrders;
-        private DataGridViewTextBoxColumn Id_OrderLine;
-        private DataGridViewTextBoxColumn OrdersId_OrderLine;
-        private DataGridViewComboBoxColumn pizzaId;
-        private DataGridViewCheckBoxColumn CustomColumn;
-        private DataGridViewTextBoxColumn PositionPrice;
-        private DataGridViewTextBoxColumn Weight;
         private Label label1;
-        private DataGridViewTextBoxColumn Idpizzas;
-        private DataGridViewTextBoxColumn NA;
-        private DataGridViewTextBoxColumn ND;
         private Label label3;
         private Label label2;
         private DataGridViewTextBoxColumn NumberofOrder;
@@ -587,5 +599,16 @@
         private DataGridViewComboBoxColumn delstatus;
         private DataGridViewTextBoxColumn comment;
         private DataGridViewComboBoxColumn managersId;
+        private DataGridViewTextBoxColumn Idpizzas;
+        private DataGridViewTextBoxColumn NA;
+        private DataGridViewTextBoxColumn ND;
+        private DataGridViewTextBoxColumn Id_OrderLine;
+        private DataGridViewTextBoxColumn OrdersId_OrderLine;
+        private DataGridViewComboBoxColumn pizzaId;
+        private DataGridViewCheckBoxColumn CustomColumn;
+        private DataGridViewTextBoxColumn PositionPrice;
+        private DataGridViewTextBoxColumn Weight;
+        private DataGridViewTextBoxColumn qu;
+        private DataGridViewComboBoxColumn Sizep;
     }
 }

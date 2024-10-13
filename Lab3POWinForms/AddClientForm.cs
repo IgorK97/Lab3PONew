@@ -53,6 +53,7 @@ namespace WindowsFormsApp2
         private DataGridViewTextBoxColumn weightingr;
         private DataGridViewTextBoxColumn IdIngr;
         private System.ComponentModel.IContainer components;
+        public BindingSource bindingSource1;
         public Button button1;
 
         //MyPizzaDeliveryContext dbContext/* = new PizzaDeliveryContext()*/;
@@ -72,6 +73,7 @@ namespace WindowsFormsApp2
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox1 = new GroupBox();
             numericUpDown1 = new NumericUpDown();
             comboBoxPizzasSizes = new ComboBox();
@@ -92,10 +94,12 @@ namespace WindowsFormsApp2
             textBoxPrice = new TextBox();
             textBoxWeight = new TextBox();
             label3 = new Label();
+            bindingSource1 = new BindingSource(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -302,6 +306,7 @@ namespace WindowsFormsApp2
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

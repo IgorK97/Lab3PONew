@@ -59,13 +59,22 @@ namespace Lab3POWinForms
             FillManagerCombobox();
             FillPizzaCombobox();
             FillReport1Combobox();
+            FillSizesCombobox();
             bindingSourceOrders.DataSource = allorders;
             bindingSourceOrderLines.DataSource = allorderlines;
-            dataGridViewOrderLines.DataSource = bindingSourceOrderLines.DataSource;
-            dataGridViewOrders.DataSource = bindingSourceOrders.DataSource;
+            dataGridViewOrderLines.DataSource = bindingSourceOrderLines;
+            dataGridViewOrders.DataSource = bindingSourceOrders;
         }
 
-
+        private void FillSizesCombobox()
+        {
+            ((DataGridViewComboBoxColumn)dataGridViewOrderLines.Columns["Sizep"]).DataSource =
+                allpizzasizes;
+            ((DataGridViewComboBoxColumn)dataGridViewOrderLines.Columns["Sizep"]).DisplayMember =
+                "Name";
+            ((DataGridViewComboBoxColumn)dataGridViewOrderLines.Columns["Sizep"]).ValueMember =
+                "Id";
+        }
         private void FillStatusCombobox()
         {
             ((DataGridViewComboBoxColumn)dataGridViewOrders.Columns["delstatus"]).DataSource =
@@ -138,10 +147,10 @@ namespace Lab3POWinForms
 
 
 
-        //private void buttonReport2_Click(object sender, EventArgs e)
-        //{
-        //    dataGridViewReport2.DataSource = ReportService.ExecuteSP((int)numericUpDown1.Value, (int)numericUpDown2.Value, currentClientId);
-        //}
+        private void buttonReport2_Click(object sender, EventArgs e)
+        {
+            dataGridViewReport2.DataSource = ReportService.ExecuteSP((int)numericUpDown1.Value, (int)numericUpDown2.Value, currentClientId);
+        }
         private void buttonSaveOrders_Click(object sender, EventArgs e)
         {
 
@@ -317,26 +326,32 @@ namespace Lab3POWinForms
                     orderLine.ordersId = currentOrderId;
                     orderLine.pizzaId = (int)f.comboBoxPizzasName.SelectedValue;
                     orderLine.quantity = (int)f.numericUpDown1.Value;
+                    orderLine.addedingredientsId = new List<int>();
+                    double finalol_price;
+                    //bool qe = Int32.TryParse(f.textBoxPrice.Text, out finalol_price);
+                    finalol_price = Convert.ToDouble(f.textBoxPrice.Text);
+                    orderLine.position_price = (decimal) finalol_price;
 
-                    int finalol_price;
-                    Int32.TryParse(f.textBoxPrice.Text, out finalol_price);
+                    double finalol_weight;
+                    finalol_weight = Convert.ToDouble(f.textBoxWeight.Text);
 
-                    orderLine.position_price = finalol_price;
+                    //Int32.TryParse(f.textBoxWeight.Text, out finalol_weight);
 
-                    int finalol_weight;
-                    Int32.TryParse(f.textBoxWeight.Text, out finalol_weight);
-
-                    orderLine.weight = finalol_weight;
+                    orderLine.weight = (decimal)finalol_weight;
 
                     orderLine.pizza_sizesId = (int)f.comboBoxPizzasSizes.SelectedValue;
                     bool cu = false;
-                    for (int i = 0; i < f.dataGridView1.RowCount && !cu; i++)
-                        if ((bool)f.dataGridView1.Rows[i].Cells[2].Value == true)
+                    for (int i = 0; i < f.dataGridView1.RowCount; i++)
+                        if ((bool)f.dataGridView1.Rows[i].Cells[4].Value == true)
+                        {
                             cu = true;
+                            orderLine.addedingredientsId.Add((int)f.dataGridView1.Rows[i].Cells[0].Value);
+                        }
                     orderLine.custom = cu;
                     orderlinesService.CreateOrderLine(orderLine);
                     allorderlines = orderlinesService.GetAllOrderLines(currentOrderId);
                     bindingSourceOrderLines.DataSource = allorderlines;
+                    FillSizesCombobox();
                     MessageBox.Show("Новый товар добавлен в корзину");
                 }
 
@@ -370,54 +385,117 @@ namespace Lab3POWinForms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //int index = getSelectedRow(dataGridViewOrderLines);
-            //int id = 0;
-            //bool converted = Int32.TryParse(dataGridViewOrderLines[0, index].Value.ToString(), out id);
-            //if (converted == false)
-            //    return;
-            //dbContext.clients.Remove(dbContext.clients.Find(id));
-            //dbContext.SaveChanges();
+            int index = getSelectedRow(dataGridViewOrderLines);
+            if (index != -1)
+            {
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridViewOrderLines[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                //dbContext.clients.Remove(dbContext.clients.Find(id));
+                //dbContext.SaveChanges();
 
+                orderlinesService.DeleteOrderLine(id);
+                bindingSourceOrderLines.DataSource = orderlinesService.GetAllOrderLines(currentOrderId);
 
-
-            //dataGridViewClients.DataSource = null;
-            //dataGridViewClients.DataSource=dbContext.clients;
+                //dataGridViewClients.DataSource = null;
+                //dataGridViewClients.DataSource = dbContext.clients;
+            }
         }
 
         
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //int index = getSelectedRow(dataGridViewOrderLines);
-            //if (index != -1)
-            //{
-            //    int id = 0;
-            //    bool converted = Int32.TryParse(dataGridViewOrderLines[0, index].Value.ToString(), out id);
-            //    if (converted == false)
-            //        return;
+            int index = getSelectedRow(dataGridViewOrderLines);
+            if (index != -1)
+            {
+                int p_id = 0;
+                bool converted = Int32.TryParse(dataGridViewOrderLines[0, index].Value.ToString(), out p_id);
+                if (converted == false)
+                    return;
+                OrderLineDto? p = allorderlines.Where(i => i.Id == p_id).FirstOrDefault();
+                if (p != null)
+                {
+                    f = new AddClientForm(/*dbContext, null*/);
 
-            //    Client ncl = dbContext.clients.Where(i => i.id == id).FirstOrDefault();
-            //    if (ncl != null)
-            //    {
-            //        AddClientForm f = new AddClientForm(dbContext, ncl);
+                    PizzaDto? myp=allpizzas.Where(i => i.Id==p.pizzaId).FirstOrDefault();
 
-            //        f.textBox1.Text = ncl.first_name;
-            //        f.textBox2.Text = ncl.last_name;
-            //        f.textBox3.Text = ncl.surname;
-            //        f.textBox4.Text = ncl.login;
-            //        f.textBox5.Text = ncl.C_password;
-            //        f.textBox6.Text = ncl.phone;
-            //        f.textBox7.Text = ncl.email;
-            //        f.textBox8.Text = ncl.address;
-            //        f.textBox9.Text = ncl.C_password;
+                    f.comboBoxPizzasName.DataSource = allpizzas;
+                    f.comboBoxPizzasName.DisplayMember = "C_name";
+                    f.comboBoxPizzasName.ValueMember = "Id";
+                    f.comboBoxPizzasName.SelectedValue = myp.Id;
 
-            //        f.ShowDialog(this);
+                    f.pictureBox1.Image = ByteToImage(myp.pizzaimage);
+                    f.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    f.richTextBox1.Text = myp.description;
+
+                    f.comboBoxPizzasSizes.DataSource = allpizzasizes;
+                    f.comboBoxPizzasSizes.DisplayMember = "name";
+                    f.comboBoxPizzasSizes.ValueMember = "Id";
+                    f.comboBoxPizzasSizes.SelectedValue = p.pizza_sizesId;
+
+                    f.numericUpDown1.Value = p.quantity;
+
+                    decimal count = f.numericUpDown1.Value;
 
 
-            //    }
-            //}
-            //else
-            //    MessageBox.Show("Ни один объект не выбран!");
+                    
+                    allingredients = orderlinesService.GetConcreteIngredients((OrderLinesService.PizzaSize)f.comboBoxPizzasSizes.SelectedValue, p.Id);
+                    f.dataGridView1.DataSource = allingredients;
+                    decimal p_price, p_weight/*, base_price, base_weight*/;
+                    OrderLinesService.PizzaSize ps;
+                    ps = (OrderLinesService.PizzaSize)f.comboBoxPizzasSizes.SelectedValue;
+                    (p_price, p_weight) = orderlinesService.GetConcretePriceAndWeight(p.pizzaId, ps, count);
+                    //(base_price, base_weight) = orderlinesService.GetBasePriceAndWeight(ps);
+                    //p_price += base_price;
+                    //p_weight += base_weight;
+
+                    f.textBoxPrice.Text = p_price.ToString();
+                    f.textBoxWeight.Text = p_weight.ToString();
+
+                    DialogResult result = f.ShowDialog(this);
+
+
+                    if (result == DialogResult.Cancel)
+                        return;
+
+
+                    //Дальше идет создание строки заказа
+
+                    //OrderLineDto orderLine = new OrderLineDto();
+                    //orderLine.ordersId = currentOrderId;
+                    p.pizzaId = (int)f.comboBoxPizzasName.SelectedValue;
+                    p.quantity = (int)f.numericUpDown1.Value;
+
+                    int finalol_price;
+                    Int32.TryParse(f.textBoxPrice.Text, out finalol_price);
+
+                    p.position_price = finalol_price;
+
+                    int finalol_weight;
+                    Int32.TryParse(f.textBoxWeight.Text, out finalol_weight);
+
+                    p.weight = finalol_weight;
+
+                    p.pizza_sizesId = (int)f.comboBoxPizzasSizes.SelectedValue;
+                    bool cu = false;
+                    for (int i = 0; i < f.dataGridView1.RowCount && !cu; i++)
+                        if ((bool)f.dataGridView1.Rows[i].Cells[4].Value == true)
+                            cu = true;
+                    p.custom = cu;
+                    orderlinesService.UpdateOrderLine(p);
+                    //orderlinesService.CreateOrderLine(orderLine);
+                    //allorderlines = orderlinesService.GetAllOrderLines(currentOrderId);
+                    //bindingSourceOrderLines.DataSource = allorderlines;
+                    MessageBox.Show("Товар в корзине обновлен");
+                    FillSizesCombobox();
+                }
+
+            }
+            else MessageBox.Show("Товар в корзине не был выбран");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

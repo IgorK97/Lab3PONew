@@ -1,11 +1,13 @@
 ﻿using BLL.DTO;
 using DAL;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BLL.Services.ReportService;
 
 namespace BLL.Services
 {
@@ -37,6 +39,12 @@ namespace BLL.Services
 
         public void CreateOrderLine(OrderLineDto p)
         {
+            List<Ingredient> addedingredients = new List<Ingredient>();
+            foreach(var pId in p.addedingredientsId)
+            {
+                Ingredient ingr = db.Ingredients.Find(pId);
+                addedingredients.Add(ingr);
+            }
             db.OrderLines.Add(new OrderLine()
             {
                 PositionPrice = p.position_price,
@@ -45,7 +53,8 @@ namespace BLL.Services
                 Weight = p.weight,
                 PizzaId = p.pizzaId,
                 PizzaSizesId = p.pizza_sizesId,
-                Quantity = p.quantity
+                Quantity = p.quantity,
+                Ingredients=addedingredients
             });
             Save();
             //db.order_lines.Attach(p);
@@ -53,6 +62,12 @@ namespace BLL.Services
 
         public void UpdateOrderLine(OrderLineDto p)
         {
+            List<Ingredient> addedingredients = new List<Ingredient>();
+            foreach (var pId in p.addedingredientsId)
+            {
+                Ingredient ingr = db.Ingredients.Find(pId);
+                addedingredients.Add(ingr);
+            }
             OrderLine ol = db.OrderLines.Find(p.Id);
             ol.Weight = p.weight;
             ol.Custom = p.custom;
@@ -61,6 +76,7 @@ namespace BLL.Services
             ol.PizzaSizesId = p.pizza_sizesId;
             ol.Quantity = p.quantity;
             ol.OrdersId = p.ordersId;
+            ol.Ingredients = addedingredients;
             Save();
         }
 
@@ -112,10 +128,55 @@ namespace BLL.Services
             return blres;
         }
 
+        public BindingList<IngredientShortDto> GetConcreteIngredients(PizzaSize ps, int ol_id)
+        {
+            //OrderLine concrete_ol = db.OrderLines.FirstOrDefault(p => p.Id == ol_id);
+            //if (concrete_ol == null)
+            //    throw new ArgumentException($"Pizza with ID {ol_id} not found");
+            //var res = (from Ingredient1 in db.Ingredients
+            //           join Ingredient2 in concrete_ol.Ingredients
+            //           on Ingredient1.Id equals Ingredient2.Id into iolGroup
+            //           select new IngredientShortDto
+            //           {
+            //               Id = Ingredient1.Id,
+            //               C_name = Ingredient1.Name,
+            //               price = ps == PizzaSize.Small ? Ingredient1.PricePerGram * Ingredient1.Small : ps == PizzaSize.Medium ?
+            //    Ingredient1.PricePerGram * Ingredient1.Medium : Ingredient1.PricePerGram * Ingredient1.Big,
+            //               weight = ps == PizzaSize.Small ? Ingredient1.Small : ps == PizzaSize.Medium ?
+            //    Ingredient1.Medium : Ingredient1.Big,
+            //               active = iolGroup.Any()
+            //           }).ToList();
+
+            //var res = db.Ingredients.Where(i => i.OrderLines.Any(ol => ol.Id == ol_id)).ToList()
+            //    .Select(i => new IngredientShortDto
+            //    {
+            //        Id = i.Id,
+            //        C_name = i.Name,
+            //        price = ps == PizzaSize.Small ? i.PricePerGram * i.Small : ps == PizzaSize.Medium ?
+            //            i.PricePerGram * i.Medium : i.PricePerGram * i.Big,
+            //        weight = ps == PizzaSize.Small ? i.Small : ps == PizzaSize.Medium ?
+            //            i.Medium : i.Big,
+            //        active = true
+            //    }).ToList();
+
+            var res = db.Ingredients.Select(i => new IngredientShortDto
+            {
+                Id = i.Id,
+                C_name = i.Name,
+                price = ps == PizzaSize.Small ? i.PricePerGram * i.Small : ps == PizzaSize.Medium ?
+                    i.PricePerGram * i.Medium : i.PricePerGram * i.Big,
+                weight = ps == PizzaSize.Small ? i.Small : ps == PizzaSize.Medium ?
+                    i.Medium : i.Big,
+                active = i.OrderLines.Any(ol => ol.Id == ol_id)
+            }).ToList();
+            var blres = new BindingList<IngredientShortDto>(res);
+            return blres;
+        }
+
         public (decimal price, decimal weight) GetBasePriceAndWeight(PizzaSize ps)
         {
 
-            var res = db.PizzaSizes.ToList().Where(i => i.Id == (int)Convert.ChangeType(ps, ps.GetTypeCode())).
+            var res = db.PizzaSizes.ToList().Where(i => i.Id == (int) ps/*(int)Convert.ChangeType(ps, ps.GetTypeCode())*/).
                 Select(i => new
                 {
                     price = i.Price,
@@ -126,34 +187,43 @@ namespace BLL.Services
 
         public (decimal price, decimal weight) GetConcretePriceAndWeight(int p_id, PizzaSize ps, decimal count)
         {
-            Pizza concrete_pizza = db.Pizzas.FirstOrDefault(p => p.Id == p_id);
-            if (concrete_pizza == null)
-                throw new ArgumentException($"Pizza with ID {p_id} not found");
+            //Pizza concrete_pizza = db.Pizzas.FirstOrDefault(p => p.Id == p_id);
+            //if (concrete_pizza == null)
+            //    throw new ArgumentException($"Pizza with ID {p_id} not found");
             decimal res_price = 0, res_weight = 0, base_price, base_weight;
             (base_price, base_weight) = GetBasePriceAndWeight(ps);
             if (ps == PizzaSize.Small)
             {
-                res_price = concrete_pizza.Ingredients.Select(i => new
+                res_price = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                .Select(p => new
                 {
-                    price = i.PricePerGram * i.Small
+                    price = p.PricePerGram*p.Small
+
                 }).Sum(i => i.price);
-                res_weight = concrete_pizza.Ingredients.Sum(i => i.Small);
+                res_weight = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                    .Sum(i => i.Small);
             }
             else if (ps == PizzaSize.Medium)
             {
-                res_price = concrete_pizza.Ingredients.Select(i => new
+                res_price = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                .Select(p => new
                 {
-                    price = i.PricePerGram * i.Medium
+                    price = p.PricePerGram * p.Medium
+
                 }).Sum(i => i.price);
-                res_weight = concrete_pizza.Ingredients.Sum(i => i.Medium);
+                res_weight = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                    .Sum(i => i.Medium);
             }
             else
             {
-                res_price = concrete_pizza.Ingredients.Select(i => new
+                res_price = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                .Select(p => new
                 {
-                    price = i.PricePerGram * i.Big
+                    price = p.PricePerGram * p.Big
+
                 }).Sum(i => i.price);
-                res_weight = concrete_pizza.Ingredients.Sum(i => i.Big);
+                res_weight = db.Ingredients.Where(p => p.Pizzas.Any(i => i.Id == p_id))
+                    .Sum(i => i.Big);
             }
             res_price += base_price;
             res_weight += base_weight;

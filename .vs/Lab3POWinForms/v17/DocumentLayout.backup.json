@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\bll\\dto\\orderlinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\dto\\orderlinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\lab3powinforms\\addclientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\addclientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\lab3powinforms\\addclientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\lab3powinforms\\addclientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\addclientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\lab3powinforms\\lab3powinforms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\lab3powinforms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,6 +39,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderLineDto.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\DTO\\OrderLineDto.cs",
+              "RelativeDocumentMoniker": "BLL\\DTO\\OrderLineDto.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\DTO\\OrderLineDto.cs",
+              "RelativeToolTip": "BLL\\DTO\\OrderLineDto.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T19:39:20.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderLinesService.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderLinesService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\OrderLinesService.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderLinesService.cs",
+              "RelativeToolTip": "BLL\\Services\\OrderLinesService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAADwv0wAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T17:49:36.912Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,33 +80,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddClientForm.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\AddClientForm.cs",
-              "RelativeDocumentMoniker": "Lab3POWinForms\\AddClientForm.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\AddClientForm.cs",
-              "RelativeToolTip": "Lab3POWinForms\\AddClientForm.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T15:42:57.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs",
               "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
               "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs*",
               "RelativeToolTip": "Lab3POWinForms\\Form1.cs*",
-              "ViewState": "AgIAAD4AAAAAAAAAAADwv0YAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEMBAAAAAAAAAADgv0gBAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T14:18:29.688Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs",
               "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
@@ -89,18 +102,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T13:43:01.907Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Lab3POWinForms.csproj",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Lab3POWinForms.csproj",
-              "RelativeDocumentMoniker": "Lab3POWinForms\\Lab3POWinForms.csproj",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Lab3POWinForms.csproj",
-              "RelativeToolTip": "Lab3POWinForms\\Lab3POWinForms.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-13T14:01:25.927Z"
             }
           ]
         }
