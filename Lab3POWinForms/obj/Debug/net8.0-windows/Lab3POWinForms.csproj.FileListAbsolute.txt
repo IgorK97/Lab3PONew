@@ -101,5 +101,5 @@ C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\bin\Debug\net8.0-window
 C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\bin\Debug\net8.0-windows\DAL.dll
 C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\bin\Debug\net8.0-windows\BLL.pdb
 C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\bin\Debug\net8.0-windows\DAL.pdb
-C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\obj\Debug\net8.0-windows\WindowsFormsApp2.AddClientForm.resources
 C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\obj\Debug\net8.0-windows\Lab3POWinForms.sourcelink.json
+C:\Users\Igor\source\repos\Lab3POWinForms\Lab3POWinForms\obj\Debug\net8.0-windows\Lab3POWinForms.AddClientForm.resources

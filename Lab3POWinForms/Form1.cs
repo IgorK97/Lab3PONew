@@ -4,7 +4,6 @@ using BLL;
 using BLL.DTO;
 using BLL.Services;
 using DAL;
-using WindowsFormsApp2;
 
 namespace Lab3POWinForms
 {
@@ -26,6 +25,7 @@ namespace Lab3POWinForms
         List<ManagerDto> allmanagers;
 
         AddClientForm f;
+        //ORForm af;
         public Form1()
         {
             InitializeComponent();
@@ -483,7 +483,7 @@ namespace Lab3POWinForms
                     //Int32.TryParse(f.textBoxWeight.Text, out finalol_weight);
                     finalol_weight = Convert.ToDouble(f.textBoxWeight.Text);
 
-                    p.weight = (decimal) finalol_weight;
+                    p.weight = (decimal)finalol_weight;
 
                     p.pizza_sizesId = (int)f.comboBoxPizzasSizes.SelectedValue;
                     bool cu = false;
@@ -517,7 +517,8 @@ namespace Lab3POWinForms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            orderService.SubmitOrder(currentOrderId);
+            string deladdress = textBox3.Text;
+            orderService.SubmitOrder(currentOrderId, deladdress);
             currentOrderId = orderService.GetCurrentOrder(currentClientId);
             allorders = orderService.GetAllOrders(currentClientId);
             bindingSourceOrders.DataSource = allorders;
@@ -531,6 +532,124 @@ namespace Lab3POWinForms
             FillPizzaCombobox();
             FillReport1Combobox();
             FillSizesCombobox();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            dataGridViewReport1.DataSource = ReportService.ReportPizzas(null);
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int index = getSelectedRow(dataGridViewOrders);
+            if (index != -1)
+            {
+                int p_id = 0;
+                bool converted = Int32.TryParse(dataGridViewOrders.Rows[index].Cells[1].Value.ToString(), out p_id);
+                if (converted == false)
+                    return;
+                orderService.CancelOrder(p_id);
+                allorders = orderService.GetAllOrders(currentClientId);
+                bindingSourceOrders.DataSource = allorders;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int index = getSelectedRow(dataGridViewOrders);
+            if (index != -1)
+            {
+                int p_id = 0;
+                bool converted = Int32.TryParse(dataGridViewReport1[0, index].Value.ToString(), out p_id);
+                if (converted == false)
+                    return;
+                PizzaDto p = allpizzas.Where(i => i.Id == p_id).FirstOrDefault();
+                if (p != null)
+                {
+                    f = new AddClientForm(/*dbContext, null*/);
+
+                    f.comboBoxPizzasName.DataSource = allpizzas;
+                    f.comboBoxPizzasName.DisplayMember = "C_name";
+                    f.comboBoxPizzasName.ValueMember = "Id";
+                    f.comboBoxPizzasName.SelectedValue = p.Id;
+
+                    f.pictureBox1.Image = ByteToImage(p.pizzaimage);
+                    f.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    f.richTextBox1.Text = p.description;
+
+                    f.comboBoxPizzasSizes.DataSource = allpizzasizes;
+                    f.comboBoxPizzasSizes.DisplayMember = "name";
+                    f.comboBoxPizzasSizes.ValueMember = "Id";
+                    f.comboBoxPizzasSizes.SelectedIndex = 0;
+
+                    decimal count = f.numericUpDown1.Value;
+
+
+                    f.dataGridView1.DataSource = allingredients;
+
+                    decimal p_price, p_weight/*, base_price, base_weight*/;
+                    OrderLinesService.PizzaSize ps;
+                    ps = (OrderLinesService.PizzaSize)f.comboBoxPizzasSizes.SelectedValue;
+                    (p_price, p_weight) = orderlinesService.GetConcretePriceAndWeight(p.Id, ps, count);
+                    //(base_price, base_weight) = orderlinesService.GetBasePriceAndWeight(ps);
+                    //p_price += base_price;
+                    //p_weight += base_weight;
+
+                    f.textBoxPrice.Text = p_price.ToString();
+                    f.textBoxWeight.Text = p_weight.ToString();
+
+                    DialogResult result = f.ShowDialog(this);
+
+
+                    if (result == DialogResult.Cancel)
+                        return;
+
+
+                    //Дальше идет создание строки заказа
+
+                    OrderLineDto orderLine = new OrderLineDto();
+                    orderLine.ordersId = currentOrderId;
+                    orderLine.pizzaId = (int)f.comboBoxPizzasName.SelectedValue;
+                    orderLine.quantity = (int)f.numericUpDown1.Value;
+                    orderLine.addedingredientsId = new List<int>();
+                    double finalol_price;
+                    //bool qe = Int32.TryParse(f.textBoxPrice.Text, out finalol_price);
+                    finalol_price = Convert.ToDouble(f.textBoxPrice.Text);
+                    orderLine.position_price = (decimal)finalol_price;
+
+                    double finalol_weight;
+                    finalol_weight = Convert.ToDouble(f.textBoxWeight.Text);
+
+                    //Int32.TryParse(f.textBoxWeight.Text, out finalol_weight);
+
+                    orderLine.weight = (decimal)finalol_weight;
+
+                    orderLine.pizza_sizesId = (int)f.comboBoxPizzasSizes.SelectedValue;
+                    bool cu = false;
+                    for (int i = 0; i < f.dataGridView1.RowCount; i++)
+                        if ((bool)f.dataGridView1.Rows[i].Cells[4].Value == true)
+                        {
+                            cu = true;
+                            orderLine.addedingredientsId.Add((int)f.dataGridView1.Rows[i].Cells[0].Value);
+                        }
+                    orderLine.custom = cu;
+                    orderlinesService.CreateOrderLine(orderLine);
+                    allorderlines = orderlinesService.GetAllOrderLines(currentOrderId);
+                    bindingSourceOrderLines.DataSource = allorderlines;
+                    decimal price_res, weight_res;
+                    (price_res, weight_res) = orderService.UpdateOrder(currentOrderId);
+                    textBox1.Text = price_res.ToString();
+                    textBox2.Text = weight_res.ToString();
+                    FillSizesCombobox();
+                    MessageBox.Show("Новый товар добавлен в корзину");
+                }
+
+            }
+            else MessageBox.Show("Выберите пиццу, которую хотите поместить в корзину");
+
+
         }
     }
 }

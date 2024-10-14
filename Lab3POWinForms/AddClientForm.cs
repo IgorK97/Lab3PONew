@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace WindowsFormsApp2
+namespace Lab3POWinForms
 {
     public delegate void EPizzaNameChanged(int value);
     public delegate void EPizzaSizeChanged(int value);

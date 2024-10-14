@@ -69,11 +69,21 @@ namespace BLL.Services
             return false;
         }
 
-        public bool SubmitOrder(int odId)
+        public bool CancelOrder(int odId)
+        {
+            Order order = db.Orders.Find(odId);
+            order.DelstatusId = (int)DeliveryStatus.Canceled;
+            if (db.SaveChanges() > 0)
+                return true;
+            return false;
+        }
+
+        public bool SubmitOrder(int odId, string addressdel)
         {
             Order order = db.Orders.Find(odId);
             order.DelstatusId = (int)DeliveryStatus.IsBeingFormed;
             order.Ordertime = DateTime.UtcNow;
+            order.AddressDel = addressdel;
             if (db.SaveChanges() > 0)
                 return true;
             return false;
@@ -95,7 +105,7 @@ namespace BLL.Services
 
         public List<OrderDto> GetAllOrders(int ClientId)
         {
-            return db.Orders.ToList().Where(i => i.ClientId == ClientId).Select(i => new OrderDto(i)).ToList();
+            return db.Orders.ToList().Where(i => i.ClientId == ClientId&&i.DelstatusId!=1).Select(i => new OrderDto(i)).ToList();
         }
 
         public List<ManagerDto> GetAllManagers()

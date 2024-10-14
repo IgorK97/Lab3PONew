@@ -31,10 +31,15 @@
             components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label6 = new Label();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
-            button1 = new Button();
             dataGridViewOrderLines = new DataGridView();
             Id_OrderLine = new DataGridViewTextBoxColumn();
             OrdersId_OrderLine = new DataGridViewTextBoxColumn();
@@ -46,7 +51,6 @@
             Sizep = new DataGridViewComboBoxColumn();
             tabPage2 = new TabPage();
             button9 = new Button();
-            button5 = new Button();
             dataGridViewOrders = new DataGridView();
             IdOrders = new DataGridViewTextBoxColumn();
             clientId_Orders = new DataGridViewTextBoxColumn();
@@ -60,6 +64,7 @@
             comment = new DataGridViewTextBoxColumn();
             managersId = new DataGridViewComboBoxColumn();
             tabPage3 = new TabPage();
+            button10 = new Button();
             label1 = new Label();
             dataGridViewReport1 = new DataGridView();
             Idpizzas = new DataGridViewTextBoxColumn();
@@ -80,10 +85,6 @@
             FC = new DataGridViewTextBoxColumn();
             bindingSourceOrderLines = new BindingSource(components);
             bindingSourceOrders = new BindingSource(components);
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label4 = new Label();
-            label5 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderLines).BeginInit();
@@ -113,6 +114,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label6);
+            tabPage1.Controls.Add(textBox3);
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(label4);
             tabPage1.Controls.Add(textBox2);
@@ -120,7 +123,6 @@
             tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
-            tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(dataGridViewOrderLines);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
@@ -129,6 +131,56 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Корзина";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(14, 343);
+            label6.Name = "label6";
+            label6.Size = new Size(92, 15);
+            label6.TabIndex = 10;
+            label6.Text = "Адрес доставки";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(118, 340);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 9;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(587, 17);
+            label5.Name = "label5";
+            label5.Size = new Size(69, 15);
+            label5.TabIndex = 8;
+            label5.Text = "Общий вес";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(405, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(75, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Общая цена";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(662, 11);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(486, 11);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 5;
             // 
             // button4
             // 
@@ -160,16 +212,6 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += btnUpdate_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(8, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Сохранить";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += buttonSaveClients_Click;
-            // 
             // dataGridViewOrderLines
             // 
             dataGridViewOrderLines.AllowUserToAddRows = false;
@@ -179,7 +221,7 @@
             dataGridViewOrderLines.Location = new Point(6, 49);
             dataGridViewOrderLines.Name = "dataGridViewOrderLines";
             dataGridViewOrderLines.ReadOnly = true;
-            dataGridViewOrderLines.Size = new Size(756, 326);
+            dataGridViewOrderLines.Size = new Size(756, 263);
             dataGridViewOrderLines.TabIndex = 0;
             // 
             // Id_OrderLine
@@ -247,7 +289,6 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(button9);
-            tabPage2.Controls.Add(button5);
             tabPage2.Controls.Add(dataGridViewOrders);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
@@ -265,16 +306,7 @@
             button9.TabIndex = 2;
             button9.Text = "Отменить заказ";
             button9.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(8, 5);
-            button5.Name = "button5";
-            button5.Size = new Size(88, 32);
-            button5.TabIndex = 1;
-            button5.Text = "Сохранить";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += buttonSaveOrders_Click;
+            button9.Click += button9_Click;
             // 
             // dataGridViewOrders
             // 
@@ -374,6 +406,7 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button10);
             tabPage3.Controls.Add(label1);
             tabPage3.Controls.Add(dataGridViewReport1);
             tabPage3.Controls.Add(button7);
@@ -386,6 +419,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Пиццы";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(304, 11);
+            button10.Name = "button10";
+            button10.Size = new Size(75, 23);
+            button10.TabIndex = 5;
+            button10.Text = "Найти все";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // label1
             // 
@@ -432,7 +475,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(304, 5);
+            button7.Location = new Point(409, 5);
             button7.Name = "button7";
             button7.Size = new Size(133, 36);
             button7.TabIndex = 2;
@@ -551,38 +594,6 @@
             FC.Name = "FC";
             FC.ReadOnly = true;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(486, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(662, 11);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(405, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Общая цена";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(587, 17);
-            label5.Name = "label5";
-            label5.Size = new Size(69, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Общий вес";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -622,9 +633,7 @@
         private Button button4;
         private Button button3;
         private Button button2;
-        private Button button1;
         private BindingSource bindingSourceOrderLines;
-        private Button button5;
         private DataGridView dataGridViewOrders;
         private DataGridView dataGridViewReport1;
         private Button button7;
@@ -641,17 +650,6 @@
         private DataGridViewTextBoxColumn NumberofOrder;
         private DataGridViewTextBoxColumn KC;
         private DataGridViewTextBoxColumn FC;
-        private DataGridViewTextBoxColumn IdOrders;
-        private DataGridViewTextBoxColumn clientId_Orders;
-        private DataGridViewComboBoxColumn CourierId_Orders;
-        private DataGridViewTextBoxColumn final_price;
-        private DataGridViewTextBoxColumn addres_del;
-        private DataGridViewTextBoxColumn weight_orders;
-        private DataGridViewTextBoxColumn ordertime;
-        private DataGridViewTextBoxColumn deliverytime;
-        private DataGridViewComboBoxColumn delstatus;
-        private DataGridViewTextBoxColumn comment;
-        private DataGridViewComboBoxColumn managersId;
         private DataGridViewTextBoxColumn Idpizzas;
         private DataGridViewTextBoxColumn NA;
         private DataGridViewTextBoxColumn ND;
@@ -668,5 +666,19 @@
         private Label label4;
         private TextBox textBox2;
         private TextBox textBox1;
+        private Button button10;
+        private Label label6;
+        private TextBox textBox3;
+        private DataGridViewTextBoxColumn IdOrders;
+        private DataGridViewTextBoxColumn clientId_Orders;
+        private DataGridViewComboBoxColumn CourierId_Orders;
+        private DataGridViewTextBoxColumn final_price;
+        private DataGridViewTextBoxColumn addres_del;
+        private DataGridViewTextBoxColumn weight_orders;
+        private DataGridViewTextBoxColumn ordertime;
+        private DataGridViewTextBoxColumn deliverytime;
+        private DataGridViewComboBoxColumn delstatus;
+        private DataGridViewTextBoxColumn comment;
+        private DataGridViewComboBoxColumn managersId;
     }
 }

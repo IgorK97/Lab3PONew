@@ -57,12 +57,13 @@ namespace BLL.Services
             public string Description { get; set; }
         }
 
-        public static List<ReportData> ReportPizzas(int ingredientId)
+        public static List<ReportData> ReportPizzas(int? ingredientId)
         {
 
             PizzaDeliveryContext dbContext = new PizzaDeliveryContext();
-
-            var request = dbContext.Pizzas.Where(p => p.Ingredients.Any(i => i.Id == ingredientId))
+            if (ingredientId != null)
+            {
+                var request = dbContext.Pizzas.Where(p => p.Ingredients.Any(i => i.Id == ingredientId))
                 .Select(p => new ReportData
                 {
                     Id = p.Id,
@@ -70,7 +71,16 @@ namespace BLL.Services
                     Description = p.Description
 
                 }).ToList();
-            return request;
+                return request;
+            }
+            var request1 = dbContext.Pizzas.Select(p => new ReportData
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description
+
+                }).ToList();
+            return request1;
         }
     }
 }
