@@ -80,11 +80,11 @@
             numericUpDown2 = new NumericUpDown();
             numericUpDown1 = new NumericUpDown();
             dataGridViewReport2 = new DataGridView();
+            bindingSourceOrderLines = new BindingSource(components);
+            bindingSourceOrders = new BindingSource(components);
             NumberofOrder = new DataGridViewTextBoxColumn();
             KC = new DataGridViewTextBoxColumn();
             FC = new DataGridViewTextBoxColumn();
-            bindingSourceOrderLines = new BindingSource(components);
-            bindingSourceOrders = new BindingSource(components);
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderLines).BeginInit();
@@ -543,6 +543,7 @@
             button8.TabIndex = 3;
             button8.Text = "Найти";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += buttonReport2_Click;
             // 
             // numericUpDown2
             // 
@@ -578,18 +579,21 @@
             // 
             // NumberofOrder
             // 
+            NumberofOrder.DataPropertyName = "order_id";
             NumberofOrder.HeaderText = "Номер заказа";
             NumberofOrder.Name = "NumberofOrder";
             NumberofOrder.ReadOnly = true;
             // 
             // KC
             // 
+            KC.DataPropertyName = "courier_id";
             KC.HeaderText = "ФИО курьера";
             KC.Name = "KC";
             KC.ReadOnly = true;
             // 
             // FC
             // 
+            FC.DataPropertyName = "Date";
             FC.HeaderText = "Дата заказа";
             FC.Name = "FC";
             FC.ReadOnly = true;
@@ -647,9 +651,6 @@
         private Label label1;
         private Label label3;
         private Label label2;
-        private DataGridViewTextBoxColumn NumberofOrder;
-        private DataGridViewTextBoxColumn KC;
-        private DataGridViewTextBoxColumn FC;
         private DataGridViewTextBoxColumn Idpizzas;
         private DataGridViewTextBoxColumn NA;
         private DataGridViewTextBoxColumn ND;
@@ -680,5 +681,8 @@
         private DataGridViewComboBoxColumn delstatus;
         private DataGridViewTextBoxColumn comment;
         private DataGridViewComboBoxColumn managersId;
+        private DataGridViewTextBoxColumn NumberofOrder;
+        private DataGridViewTextBoxColumn KC;
+        private DataGridViewTextBoxColumn FC;
     }
 }

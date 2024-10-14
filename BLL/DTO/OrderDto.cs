@@ -24,8 +24,8 @@ namespace BLL.DTO
         public string address_del { get; set; }
 
         public decimal weight { get; set; }
-        public DateTimeOffset? ordertime { get; set; }
-        public DateTimeOffset? deliverytime { get; set; }
+        public DateTime? ordertime { get; set; }
+        public DateTime? deliverytime { get; set; }
         public int delstatusId { get; set; }
         public string? comment { get; set; }
 
