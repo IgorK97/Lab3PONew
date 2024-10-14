@@ -36,7 +36,16 @@
             button2 = new Button();
             button1 = new Button();
             dataGridViewOrderLines = new DataGridView();
+            Id_OrderLine = new DataGridViewTextBoxColumn();
+            OrdersId_OrderLine = new DataGridViewTextBoxColumn();
+            pizzaId = new DataGridViewComboBoxColumn();
+            CustomColumn = new DataGridViewCheckBoxColumn();
+            PositionPrice = new DataGridViewTextBoxColumn();
+            Weight = new DataGridViewTextBoxColumn();
+            qu = new DataGridViewTextBoxColumn();
+            Sizep = new DataGridViewComboBoxColumn();
             tabPage2 = new TabPage();
+            button9 = new Button();
             button5 = new Button();
             dataGridViewOrders = new DataGridView();
             IdOrders = new DataGridViewTextBoxColumn();
@@ -71,14 +80,10 @@
             FC = new DataGridViewTextBoxColumn();
             bindingSourceOrderLines = new BindingSource(components);
             bindingSourceOrders = new BindingSource(components);
-            Id_OrderLine = new DataGridViewTextBoxColumn();
-            OrdersId_OrderLine = new DataGridViewTextBoxColumn();
-            pizzaId = new DataGridViewComboBoxColumn();
-            CustomColumn = new DataGridViewCheckBoxColumn();
-            PositionPrice = new DataGridViewTextBoxColumn();
-            Weight = new DataGridViewTextBoxColumn();
-            qu = new DataGridViewTextBoxColumn();
-            Sizep = new DataGridViewComboBoxColumn();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderLines).BeginInit();
@@ -108,6 +113,10 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label5);
+            tabPage1.Controls.Add(label4);
+            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
@@ -123,12 +132,13 @@
             // 
             // button4
             // 
-            button4.Location = new Point(319, 6);
+            button4.Location = new Point(311, 6);
             button4.Name = "button4";
             button4.Size = new Size(88, 35);
             button4.TabIndex = 4;
             button4.Text = "Заказать";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -172,8 +182,71 @@
             dataGridViewOrderLines.Size = new Size(756, 326);
             dataGridViewOrderLines.TabIndex = 0;
             // 
+            // Id_OrderLine
+            // 
+            Id_OrderLine.DataPropertyName = "id";
+            Id_OrderLine.HeaderText = "Id";
+            Id_OrderLine.Name = "Id_OrderLine";
+            Id_OrderLine.ReadOnly = true;
+            Id_OrderLine.Visible = false;
+            // 
+            // OrdersId_OrderLine
+            // 
+            OrdersId_OrderLine.DataPropertyName = "ordersId";
+            OrdersId_OrderLine.HeaderText = "Номер заказа";
+            OrdersId_OrderLine.Name = "OrdersId_OrderLine";
+            OrdersId_OrderLine.ReadOnly = true;
+            OrdersId_OrderLine.Visible = false;
+            // 
+            // pizzaId
+            // 
+            pizzaId.DataPropertyName = "pizzaId";
+            pizzaId.HeaderText = "Пицца";
+            pizzaId.Name = "pizzaId";
+            pizzaId.ReadOnly = true;
+            // 
+            // CustomColumn
+            // 
+            CustomColumn.DataPropertyName = "custom";
+            CustomColumn.HeaderText = "Пользовательская";
+            CustomColumn.Name = "CustomColumn";
+            CustomColumn.ReadOnly = true;
+            // 
+            // PositionPrice
+            // 
+            PositionPrice.DataPropertyName = "position_price";
+            PositionPrice.HeaderText = "Цена";
+            PositionPrice.Name = "PositionPrice";
+            PositionPrice.ReadOnly = true;
+            PositionPrice.Resizable = DataGridViewTriState.True;
+            PositionPrice.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Weight
+            // 
+            Weight.DataPropertyName = "weight";
+            Weight.HeaderText = "Вес";
+            Weight.Name = "Weight";
+            Weight.ReadOnly = true;
+            // 
+            // qu
+            // 
+            qu.DataPropertyName = "quantity";
+            qu.HeaderText = "Количество";
+            qu.Name = "qu";
+            qu.ReadOnly = true;
+            // 
+            // Sizep
+            // 
+            Sizep.DataPropertyName = "pizza_sizesId";
+            Sizep.HeaderText = "Размер";
+            Sizep.Name = "Sizep";
+            Sizep.ReadOnly = true;
+            Sizep.Resizable = DataGridViewTriState.True;
+            Sizep.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(button9);
             tabPage2.Controls.Add(button5);
             tabPage2.Controls.Add(dataGridViewOrders);
             tabPage2.Location = new Point(4, 24);
@@ -183,6 +256,15 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Заказы";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(108, 6);
+            button9.Name = "button9";
+            button9.Size = new Size(108, 31);
+            button9.TabIndex = 2;
+            button9.Text = "Отменить заказ";
+            button9.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -469,67 +551,37 @@
             FC.Name = "FC";
             FC.ReadOnly = true;
             // 
-            // Id_OrderLine
+            // textBox1
             // 
-            Id_OrderLine.DataPropertyName = "id";
-            Id_OrderLine.HeaderText = "Id";
-            Id_OrderLine.Name = "Id_OrderLine";
-            Id_OrderLine.ReadOnly = true;
-            Id_OrderLine.Visible = false;
+            textBox1.Location = new Point(486, 11);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 5;
             // 
-            // OrdersId_OrderLine
+            // textBox2
             // 
-            OrdersId_OrderLine.DataPropertyName = "ordersId";
-            OrdersId_OrderLine.HeaderText = "Номер заказа";
-            OrdersId_OrderLine.Name = "OrdersId_OrderLine";
-            OrdersId_OrderLine.ReadOnly = true;
-            OrdersId_OrderLine.Visible = false;
+            textBox2.Location = new Point(662, 11);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 6;
             // 
-            // pizzaId
+            // label4
             // 
-            pizzaId.DataPropertyName = "pizzaId";
-            pizzaId.HeaderText = "Пицца";
-            pizzaId.Name = "pizzaId";
-            pizzaId.ReadOnly = true;
+            label4.AutoSize = true;
+            label4.Location = new Point(405, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(75, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Общая цена";
             // 
-            // CustomColumn
+            // label5
             // 
-            CustomColumn.DataPropertyName = "custom";
-            CustomColumn.HeaderText = "Пользовательская";
-            CustomColumn.Name = "CustomColumn";
-            CustomColumn.ReadOnly = true;
-            // 
-            // PositionPrice
-            // 
-            PositionPrice.DataPropertyName = "position_price";
-            PositionPrice.HeaderText = "Цена";
-            PositionPrice.Name = "PositionPrice";
-            PositionPrice.ReadOnly = true;
-            PositionPrice.Resizable = DataGridViewTriState.True;
-            PositionPrice.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Weight
-            // 
-            Weight.DataPropertyName = "weight";
-            Weight.HeaderText = "Вес";
-            Weight.Name = "Weight";
-            Weight.ReadOnly = true;
-            // 
-            // qu
-            // 
-            qu.DataPropertyName = "quantity";
-            qu.HeaderText = "Количество";
-            qu.Name = "qu";
-            qu.ReadOnly = true;
-            // 
-            // Sizep
-            // 
-            Sizep.DataPropertyName = "pizza_sizesId";
-            Sizep.HeaderText = "Размер";
-            Sizep.Name = "Sizep";
-            Sizep.ReadOnly = true;
-            Sizep.Resizable = DataGridViewTriState.True;
-            Sizep.SortMode = DataGridViewColumnSortMode.Automatic;
+            label5.AutoSize = true;
+            label5.Location = new Point(587, 17);
+            label5.Name = "label5";
+            label5.Size = new Size(69, 15);
+            label5.TabIndex = 8;
+            label5.Text = "Общий вес";
             // 
             // Form1
             // 
@@ -542,6 +594,7 @@
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderLines).EndInit();
             tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).EndInit();
@@ -610,5 +663,10 @@
         private DataGridViewTextBoxColumn Weight;
         private DataGridViewTextBoxColumn qu;
         private DataGridViewComboBoxColumn Sizep;
+        private Button button9;
+        private Label label5;
+        private Label label4;
+        private TextBox textBox2;
+        private TextBox textBox1;
     }
 }

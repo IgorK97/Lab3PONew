@@ -1,5 +1,6 @@
 ﻿using BLL.DTO;
 using DAL;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,20 @@ namespace BLL.Services
             //i.clientId == ClientId && i.delstatusId == 2);
             //return oid;
             int oid = 0;
-            oid = db.Orders.Where(i => i.ClientId == ClientId && i.DelstatusId == 1).
+            oid = db.Orders.Where(i => i.ClientId == ClientId && i.DelstatusId == (int) DeliveryStatus.NotPlaced/*1*/).
                 Select(o => o.Id).FirstOrDefault();
             //Если такого нет, то создать такой
             if (oid == 0)
             {
-                bool s = MakeOrder(ClientId);
-                oid = db.Orders.Where(i => i.ClientId == ClientId && i.DelstatusId == 1).
+                bool s = MakeOrder(ClientId/*, DeliveryStatus.NotPlaced*/);
+                oid = db.Orders.Where(i => i.ClientId == ClientId && i.DelstatusId == (int) DeliveryStatus.NotPlaced/* 1*/).
                 Select(o => o.Id).FirstOrDefault();
             }
+            //Order res = db.Orders.Find(oid);
+            //OrderDto resord = new OrderDto()
+            //{
+
+            //}
             return oid;
         }
 
@@ -45,60 +51,46 @@ namespace BLL.Services
             HandedOver = 8
         };
 
-        public bool MakeOrder(int ClientId)
+        public bool MakeOrder(int ClientId/*, DeliveryStatus delstatus*/)
         {
             Order order = new Order
             {
-                //id = null,
-                //id=0,
-                //Id= default,
                 ClientId = ClientId,
-                FinalPrice=0,
+                FinalPrice = 0,
                 Weight = 0,
                 DelstatusId = 1,
                 AddressDel = "",
                 Comment = ""
             };
+
             db.Orders.Add(order);
             if (db.SaveChanges() > 0)
                 return true;
             return false;
         }
 
-        //public bool MakeOrder(OrderDto orderDto)
-        //{
-        //    List<order_lines> orderlines = new List<order_lines>();
-        //    decimal sum = 0;
-        //    decimal weight = 0;
-        //    foreach (var pId in orderDto.order_linesIds)
-        //    {
-        //        order_lines ol = db.order_lines.Find(pId);
-        //        // валидация
-        //        if (ol == null)
-        //            throw new Exception("Строка заказа не найдена");
-        //        sum += ol.position_price;
-        //        weight += ol.weight;
-        //        orderlines.Add(ol);
-        //    }
+        public bool SubmitOrder(int odId)
+        {
+            Order order = db.Orders.Find(odId);
+            order.DelstatusId = (int)DeliveryStatus.IsBeingFormed;
+            order.Ordertime = DateTime.UtcNow;
+            if (db.SaveChanges() > 0)
+                return true;
+            return false;
+        }
 
-
-        //    orders order = new orders
-        //    {
-        //        clientId = orderDto.clientId,
-        //        final_price = orderDto.final_price,
-        //        weight = orderDto.weight,
-        //        ordertime = DateTimeOffset.Now,
-        //        delstatusId = 1,
-        //        order_lines = orderlines,
-        //        address_del=orderDto.address_del
-        //    };
-
-        //    db.orders.Add(order);
-        //    if (db.SaveChanges() > 0)
-        //        return true;
-        //    return false;
-
-        //}
+        public (decimal price, decimal weight) UpdateOrder(int odId)
+        {
+            decimal price, weight;
+            price = db.OrderLines.Where(ol => ol.OrdersId == odId).Select(i => i.PositionPrice).Sum();
+            weight = db.OrderLines.Where(ol => ol.OrdersId == odId).Select(i => i.Weight).Sum();
+            Order order = db.Orders.Find(odId);
+            order.Weight = weight;
+            order.FinalPrice = price;
+            if (db.SaveChanges() > 0)
+                return (price, weight);
+            throw new Exception("Ошибка обновления заказа");
+        }
 
 
         public List<OrderDto> GetAllOrders(int ClientId)
