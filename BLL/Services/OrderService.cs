@@ -81,11 +81,16 @@ namespace BLL.Services
         public bool SubmitOrder(int odId, string addressdel)
         {
             Order order = db.Orders.Find(odId);
-            order.DelstatusId = (int)DeliveryStatus.IsBeingFormed;
-            order.Ordertime = DateTime.UtcNow;
-            order.AddressDel = addressdel;
-            if (db.SaveChanges() > 0)
-                return true;
+            if (order != null)
+            {
+                if (order.FinalPrice == (decimal)0.00)
+                    return false;
+                order.DelstatusId = (int)DeliveryStatus.IsBeingFormed;
+                order.Ordertime = DateTime.UtcNow;
+                order.AddressDel = addressdel;
+                if (db.SaveChanges() > 0)
+                    return true;
+            }
             return false;
         }
 
@@ -105,7 +110,7 @@ namespace BLL.Services
 
         public List<OrderDto> GetAllOrders(int ClientId)
         {
-            return db.Orders.ToList().Where(i => i.ClientId == ClientId&&i.DelstatusId!=1).Select(i => new OrderDto(i)).ToList();
+            return db.Orders.ToList().Where(i => i.ClientId == ClientId&&i.DelstatusId!=1).Select(i => new OrderDto(i)).OrderByDescending(i => i.ordertime).ToList();
         }
 
         public List<ManagerDto> GetAllManagers()

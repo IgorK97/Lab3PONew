@@ -401,6 +401,11 @@ namespace Lab3POWinForms
 
                 orderlinesService.DeleteOrderLine(id);
                 bindingSourceOrderLines.DataSource = orderlinesService.GetAllOrderLines(currentOrderId);
+                decimal price_res, weight_res;
+                (price_res, weight_res) = orderService.UpdateOrder(currentOrderId);
+                textBox1.Text = price_res.ToString();
+                textBox2.Text = weight_res.ToString();
+                MessageBox.Show("Товар из корзины удален");
 
                 //dataGridViewClients.DataSource = null;
                 //dataGridViewClients.DataSource = dbContext.clients;
@@ -518,20 +523,24 @@ namespace Lab3POWinForms
         private void button4_Click(object sender, EventArgs e)
         {
             string deladdress = textBox3.Text;
-            orderService.SubmitOrder(currentOrderId, deladdress);
-            currentOrderId = orderService.GetCurrentOrder(currentClientId);
-            allorders = orderService.GetAllOrders(currentClientId);
-            bindingSourceOrders.DataSource = allorders;
-            allorderlines = orderlinesService.GetAllOrderLines(currentOrderId);
-            bindingSourceOrderLines.DataSource = allorderlines;
-            textBox1.Text = "";
-            textBox2.Text = "";
-            FillCourierCombobox();
-            FillStatusCombobox();
-            FillManagerCombobox();
-            FillPizzaCombobox();
-            FillReport1Combobox();
-            FillSizesCombobox();
+            if (orderService.SubmitOrder(currentOrderId, deladdress))
+            {
+                currentOrderId = orderService.GetCurrentOrder(currentClientId);
+                allorders = orderService.GetAllOrders(currentClientId);
+                bindingSourceOrders.DataSource = allorders;
+                allorderlines = orderlinesService.GetAllOrderLines(currentOrderId);
+                bindingSourceOrderLines.DataSource = allorderlines;
+                textBox1.Text = "";
+                textBox2.Text = "";
+                MessageBox.Show("Заказ оформлен");
+
+                FillCourierCombobox();
+                FillStatusCombobox();
+                FillManagerCombobox();
+                FillPizzaCombobox();
+                FillReport1Combobox();
+                FillSizesCombobox();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
