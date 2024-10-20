@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ncy/uotE/s=",
+  "dgSpecHash": "fvFOc3XdvD8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Lab3POWinForms.csproj",
+  "projectFilePath": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Lab4POWinForms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Igor\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

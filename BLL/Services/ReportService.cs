@@ -1,5 +1,7 @@
 ﻿using Npgsql;
 using DAL;
+using DomainModel;
+using DTO;
 using System;
 using System.Data;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
-﻿using BLL.DTO;
+﻿using DomainModel;
+using DTO;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using System;

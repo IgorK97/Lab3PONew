@@ -1,9 +1,10 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using BLL;
-using BLL.DTO;
 using BLL.Services;
 using DAL;
+using DTO;
+//using Interfaces.Services;
 
 namespace Lab3POWinForms
 {

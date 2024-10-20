@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lab3POWinForms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d671918a75a883b35fdaa789dc2a7c53d6a58e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e656bae38f0fa80520bf29fff16b413827b601c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lab3POWinForms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lab3POWinForms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

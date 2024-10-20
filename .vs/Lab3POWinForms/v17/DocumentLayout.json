@@ -1,29 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\",
+  "WorkspaceRootPath": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab4POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab4po\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab4POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab4POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab4po\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab4POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab4po\\bll\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab4po\\bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89B0CB48-ADC6-4A69-AA1B-D94F3181AAAC}|DAL\\DAL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\dal\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89B0CB48-ADC6-4A69-AA1B-D94F3181AAAC}|DAL\\DAL.csproj|solutionrelative:dal\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab4po\\bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\services\\orderlinesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\bll\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D82862C-41E7-43AB-8C91-5227B6C3DFA8}|BLL\\BLL.csproj|solutionrelative:bll\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{914AEC3A-E9B0-41EB-BBE9-BC008C954B5C}|Interfaces\\Interfaces.csproj|c:\\users\\igor\\source\\repos\\lab4po\\interfaces\\dto\\pizzasizesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914AEC3A-E9B0-41EB-BBE9-BC008C954B5C}|Interfaces\\Interfaces.csproj|solutionrelative:interfaces\\dto\\pizzasizesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|c:\\users\\igor\\source\\repos\\lab3powinforms\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|C:\\Users\\Igor\\source\\repos\\Lab4PO\\lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E7D8985-12FB-499B-91CC-C9F1E1D153F4}|Lab3POWinForms\\Lab3POWinForms.csproj|solutionrelative:lab3powinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -47,74 +51,90 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OrderLinesService.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderLinesService.cs",
-              "RelativeDocumentMoniker": "BLL\\Services\\OrderLinesService.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderLinesService.cs",
-              "RelativeToolTip": "BLL\\Services\\OrderLinesService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Form1.cs",
+              "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Form1.cs",
+              "RelativeToolTip": "Lab3POWinForms\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T10:48:29.057Z",
+              "WhenOpened": "2024-10-20T18:05:29.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\DAL\\Order.cs",
-              "RelativeDocumentMoniker": "DAL\\Order.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\DAL\\Order.cs",
-              "RelativeToolTip": "DAL\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\ReportService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\ReportService.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\ReportService.cs",
+              "RelativeToolTip": "BLL\\Services\\ReportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T10:48:07.565Z"
+              "WhenOpened": "2024-10-20T18:03:56.407Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "OrderDto.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\DTO\\OrderDto.cs",
-              "RelativeDocumentMoniker": "BLL\\DTO\\OrderDto.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\DTO\\OrderDto.cs",
-              "RelativeToolTip": "BLL\\DTO\\OrderDto.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T10:46:02.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "OrderService.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "BLL\\Services\\OrderService.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\BLL\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\OrderService.cs",
               "RelativeToolTip": "BLL\\Services\\OrderService.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAuwG8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T19:31:59.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs",
-              "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T11:29:10.383Z"
+              "WhenOpened": "2024-10-20T18:03:44.004Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs",
-              "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
-              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs",
-              "RelativeToolTip": "Lab3POWinForms\\Form1.cs",
-              "ViewState": "AgIAAIMBAAAAAAAAAAAvwB4CAAANAAAAAAAAAA==",
+              "Title": "OrderLinesService.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\OrderLinesService.cs",
+              "RelativeDocumentMoniker": "BLL\\Services\\OrderLinesService.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\BLL\\Services\\OrderLinesService.cs",
+              "RelativeToolTip": "BLL\\Services\\OrderLinesService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T14:18:29.688Z"
+              "WhenOpened": "2024-10-20T18:03:19.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PizzaSizesDto.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Interfaces\\DTO\\PizzaSizesDto.cs",
+              "RelativeDocumentMoniker": "Interfaces\\DTO\\PizzaSizesDto.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Interfaces\\DTO\\PizzaSizesDto.cs",
+              "RelativeToolTip": "Interfaces\\DTO\\PizzaSizesDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T18:02:35.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Form1.cs",
+              "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T17:51:03.602Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\Igor\\source\\repos\\Lab4PO\\Lab3POWinForms\\Form1.cs",
+              "RelativeDocumentMoniker": "Lab3POWinForms\\Form1.cs",
+              "ToolTip": "C:\\Users\\Igor\\source\\repos\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "..\\Lab3POWinForms\\Lab3POWinForms\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T11:29:10.383Z"
             }
           ]
         }
